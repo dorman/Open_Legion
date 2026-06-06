@@ -1,0 +1,72 @@
+# This config was automatically generated from your source code
+# Stacks detected: artifact:go-executable:,cicd:github-actions:.github/workflows,deps:go:.,deps:node:.
+version: 2.1
+orbs:
+  node: circleci/node@5
+jobs:
+  test-node:
+    # Install node dependencies and run tests
+    executor: node/default
+    steps:
+      - checkout
+      - run:
+          name: Install Bun
+          command: curl -fsSL https://bun.sh/install | bash && echo 'export PATH="$HOME/.bun/bin:$PATH"' >> "$BASH_ENV"
+      - run:
+          name: Install packages
+          command: bun install
+      - run:
+          name: Run tests
+          command: cd packages/openlegion && bun run test:ci
+      - store_test_results:
+          path: packages/openlegion/.artifacts/unit
+  test-go:
+    # Install go modules and run tests
+    docker:
+      - image: cimg/go:1.22
+    steps:
+      - checkout
+      - run:
+          name: Run tests
+          command: gotestsum --junitfile junit.xml
+      - store_test_results:
+          path: junit.xml
+  build-go-executables:
+    # Build go executables and store them as artifacts
+    docker:
+      - image: cimg/go:1.22
+    steps:
+      - checkout
+      - run:
+          name: Create the ~/artifacts directory if it doesn't exist
+          command: mkdir -p ~/artifacts
+      - run:
+          name: Build executables
+          command: go build -o ~/artifacts ./...
+      - store_artifacts:
+          path: ~/artifacts
+          destination: executables
+  deploy:
+    # This is an example deploy job, not actually used by the workflow
+    docker:
+      - image: cimg/base:stable
+    steps:
+      # Replace this with steps to deploy to users
+      - run:
+          name: deploy
+          command: '#e.g. ./deploy.sh'
+      - run:
+          name: found github actions config
+          command: ':'
+workflows:
+  build-and-test:
+    jobs:
+      - test-node
+      - test-go
+      - build-go-executables:
+          requires:
+            - test-node
+            - test-go
+    # - deploy:
+    #     requires:
+    #       - build-go-executables
