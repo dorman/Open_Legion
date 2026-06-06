@@ -12,7 +12,7 @@ MIT — see [LICENSE](./LICENSE). Upstream OpenCode remains MIT; attribution app
 
 Everything runs **on your machine**. There is no hosted control plane; data, credentials, and workloads stay local.
 
-[![Build status](https://img.shields.io/github/actions/workflow/status/dorman/Open_Legion/publish.yml?style=flat-square&branch=dev)](https://github.com/dorman/Open_Legion/actions/workflows/publish.yml)
+[![CircleCI](https://dl.circleci.com/status-badge/redirect/gh/dorman/OpenLegion/tree/dev?style=svg)](https://app.circleci.com/projects/circleci/4HpVvw2oM8fo29s68vV2LJ/Rr9dbeB2u95SMBe6qjL1Jp)
 
 ---
 
