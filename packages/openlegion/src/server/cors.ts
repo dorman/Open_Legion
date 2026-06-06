@@ -1,6 +1,6 @@
 import { Context } from "effect"
 
-const openlegionOrigin = /^https:\/\/([a-z0-9-]+\.)*openlegion\.ai$/
+const openlegionOrigin = /^https:\/\/([a-z0-9-]+\.)*openlegion\.dev$/
 
 export type CorsOptions = { readonly cors?: ReadonlyArray<string> }
 

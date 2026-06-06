@@ -6,8 +6,9 @@ exports[`TUI inline tool wrapping snapshots consecutive grep, glob, and read row
    ✱ Glob "**/*db*" in packages/openlegion (6 matches)
    → Read packages/openlegion/src/storage/db.ts [offset=1, limit=130]
    → Read packages/openlegion/src/index.ts [offset=1, limit=100]
-   ✱ Grep "export const OPENLEGION_DB|OPENLEGION_DB|OPENLEGION_DEV|Global\\.
-     Path\\.data|data =" in packages/openlegion/src (115 matches)"
+   ✱ Grep "export const
+     OPENLEGION_DB|OPENLEGION_DB|OPENLEGION_DEV|Global\\.Path\\.data|data
+     =" in packages/openlegion/src (115 matches)"
 `;
 
 exports[`TUI inline tool wrapping snapshots expanded tool errors under the tool text 1`] = `
@@ -17,8 +18,9 @@ exports[`TUI inline tool wrapping snapshots expanded tool errors under the tool 
    → Read packages/openlegion/src/storage/db.ts [offset=1, limit=130]
    → Read packages/openlegion/src/index.ts [offset=1, limit=100]
      No LSP server available for this file type.
-   ✱ Grep "export const OPENLEGION_DB|OPENLEGION_DB|OPENLEGION_DEV|Global\\.
-     Path\\.data|data =" in packages/openlegion/src (115 matches)"
+   ✱ Grep "export const
+     OPENLEGION_DB|OPENLEGION_DB|OPENLEGION_DEV|Global\\.Path\\.data|data
+     =" in packages/openlegion/src (115 matches)"
 `;
 
 exports[`TUI inline tool wrapping keeps separation after a shell output block 1`] = `
@@ -35,8 +37,9 @@ exports[`TUI inline tool wrapping keeps separation after a shell output block 1`
    ✱ Glob "**/*db*" in packages/openlegion (6 matches)
    → Read packages/openlegion/src/storage/db.ts [offset=1, limit=130]
    → Read packages/openlegion/src/index.ts [offset=1, limit=100]
-   ✱ Grep "export const OPENLEGION_DB|OPENLEGION_DB|OPENLEGION_DEV|Global\\.
-     Path\\.data|data =" in packages/openlegion/src (115 matches)"
+   ✱ Grep "export const
+     OPENLEGION_DB|OPENLEGION_DB|OPENLEGION_DEV|Global\\.Path\\.data|data
+     =" in packages/openlegion/src (115 matches)"
 `;
 
 exports[`TUI inline tool wrapping keeps separation after a padded user message 1`] = `
@@ -49,8 +52,9 @@ exports[`TUI inline tool wrapping keeps separation after a padded user message 1
    ✱ Glob "**/*db*" in packages/openlegion (6 matches)
    → Read packages/openlegion/src/storage/db.ts [offset=1, limit=130]
    → Read packages/openlegion/src/index.ts [offset=1, limit=100]
-   ✱ Grep "export const OPENLEGION_DB|OPENLEGION_DB|OPENLEGION_DEV|Global\\.
-     Path\\.data|data =" in packages/openlegion/src (115 matches)"
+   ✱ Grep "export const
+     OPENLEGION_DB|OPENLEGION_DB|OPENLEGION_DEV|Global\\.Path\\.data|data
+     =" in packages/openlegion/src (115 matches)"
 `;
 
 exports[`TUI inline tool wrapping separates a contiguous subagent group from inline tools 1`] = `
