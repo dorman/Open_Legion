@@ -9,16 +9,21 @@ jobs:
     executor: node/default
     steps:
       - checkout
-      - node/install-packages:
-          cache-path: ~/project/node_modules
-          override-ci-command: npm install
+      - run:
+          name: Install Bun
+          command: curl -fsSL https://bun.sh/install | bash && echo 'export PATH="$HOME/.bun/bin:$PATH"' >> "$BASH_ENV"
+      - run:
+          name: Install packages
+          command: bun install
       - run:
           name: Run tests
-          command: npm test --passWithNoTests
+          command: cd packages/openlegion && bun run test:ci
+      - store_test_results:
+          path: packages/openlegion/.artifacts/unit
   test-go:
     # Install go modules and run tests
     docker:
-      - image: cimg/go:1.20
+      - image: cimg/go:1.22
     steps:
       - checkout
       - run:
@@ -29,7 +34,7 @@ jobs:
   build-go-executables:
     # Build go executables and store them as artifacts
     docker:
-      - image: cimg/go:1.20
+      - image: cimg/go:1.22
     steps:
       - checkout
       - run:
