@@ -12,7 +12,7 @@ jobs:
             - bun-v1-
       - run:
           name: Install build dependencies
-          command: apt-get update && apt-get install -y python3 make g++
+          command: apt-get update && apt-get install -y python3 make g++ git
       - run:
           name: Install packages
           command: bun install --frozen-lockfile
