@@ -41,6 +41,7 @@ const it = testEffect(
     Agent.defaultLayer,
   ),
 )
+const nonRootIt = process.getuid?.() === 0 ? it.instance.skip : it.instance
 
 const init = Effect.fn("WriteToolTest.init")(function* () {
   const info = yield* WriteTool
@@ -249,7 +250,7 @@ describe("tool.write", () => {
   })
 
   describe("error handling", () => {
-    it.instance("throws error when OS denies write access", () =>
+    nonRootIt("throws error when OS denies write access", () =>
       Effect.gen(function* () {
         const test = yield* TestInstance
         const readonlyPath = path.join(test.directory, "readonly.txt")

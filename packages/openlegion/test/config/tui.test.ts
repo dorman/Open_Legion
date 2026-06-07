@@ -13,6 +13,7 @@ import { testEffect } from "../lib/effect"
 
 const it = testEffect(Layer.mergeAll(Config.defaultLayer, FSUtil.defaultLayer))
 const winIt = process.platform === "win32" ? it.instance : it.instance.skip
+const nonRootIt = process.getuid?.() === 0 ? it.instance.skip : it.instance
 
 const globalConfigFiles = ["openlegion.json", "openlegion.jsonc", "tui.json", "tui.jsonc"].map((file) =>
   path.join(Global.Path.config, file),
@@ -297,7 +298,7 @@ it.instance("skips migration when tui.json already exists", () =>
   ),
 )
 
-it.instance("continues loading tui config when legacy source cannot be stripped", () =>
+nonRootIt("continues loading tui config when legacy source cannot be stripped", () =>
   withCleanState(
     Effect.gen(function* () {
       const fs = yield* FSUtil.Service

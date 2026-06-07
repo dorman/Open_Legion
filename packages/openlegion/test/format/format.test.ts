@@ -204,21 +204,11 @@ describe("Format", () => {
       config: {
         formatter: {
           first: {
-            command: [
-              "node",
-              "-e",
-              "const fs = require('fs'); const file = process.argv[1]; fs.writeFileSync(file, fs.readFileSync(file, 'utf8') + 'A')",
-              "$FILE",
-            ],
+            command: ["sh", "-c", "printf '%s' A >> \"$1\"", "--", "$FILE"],
             extensions: [".seq"],
           },
           second: {
-            command: [
-              "node",
-              "-e",
-              "const fs = require('fs'); const file = process.argv[1]; fs.writeFileSync(file, fs.readFileSync(file, 'utf8') + 'B')",
-              "$FILE",
-            ],
+            command: ["sh", "-c", "printf '%s' B >> \"$1\"", "--", "$FILE"],
             extensions: [".seq"],
           },
         },
